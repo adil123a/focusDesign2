@@ -569,7 +569,7 @@ header{
 // text animation here
 .rubber-letter{
     font-size:50px;
-    transition:0.2s ease-in-out color
+    transition:0.2s ease-in-out color;
 }
 .rubber-letter:hover{
     display:inline-block;
@@ -577,10 +577,6 @@ header{
     color:#08fdd8;
     transition:0.2s ease-in-out color
 
-}
-.rubber-item{
-    display: inline-table;
-    animation:rubberLetter 1s ease-in-out forwards;
 }
 @keyframes rubberLetter{
     0%{transform:scale3d(1,1,1)}
