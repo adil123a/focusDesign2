@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Focus Design</title>
-    <link rel="shortcut icon" href="images/logo.png" type="image/png">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/all.min.css">
 </head>
@@ -72,8 +72,9 @@
     <!-- text zone  section one-->
     <section id="section-home" class="section-home">
         <div class="text-zone">
-            <h1 class="rubber-band header">Hi, I'm<h1 class="rubber-band1">Kamran Haider,</h1>
-                <h1 class="rubber-band2 ended">graphics designer</h1>
+            <h1 class="rubber-band header">Hi, <span></span> I'm<h1 class="rubber-band1">Kamran <span></span> Haider,
+                </h1>
+                <h1 class="rubber-band2 ended">graphic <span></span> designer</h1>
             </h1>
             <p class="gray-text">Graphics Designer / Researcher</p>
             <br>
@@ -89,7 +90,7 @@
                 </div>
             </a>
         </div>
-
+        <canvas style="position: absolute;left:0;z-index: -1;" id="canvas" width="500" height="500"></canvas>
         <!--  -->
         <div class="scroll-down">
             <span>scroll down</span>
@@ -107,7 +108,7 @@
     <!-- part 2 starts here  -->
     <section id="section-work">
         <div id="header">
-            <h2 class="rubber-band3">My Portfolio</h2>
+            <h2 class="rubber-band3">My <span></span> Portfolio</h2>
         </div>
         <div class="text-zone-2">
             <div>
@@ -223,8 +224,8 @@
 
         <div class="text-zone3">
             <div id="header">
-                <h2 class="rubber-band4">Me, Myself</h2>
-                <h2 class="rubber-band5">and I</h2>
+                <h2 class="rubber-band4">Me, <span></span> Myself</h2>
+                <h2 class="rubber-band5">and <span></span> I</h2>
             </div>
 
             <p>Since Adobe Flash was a complete innovation, alongside with CSS 1.0
@@ -445,6 +446,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="jquery.tagcanvas.js"></script>
     <script src="index.js"></script>
+    <script src="animationjs1151234.js"></script>
     <script>
         var text1 = document.querySelector('.rubber-band')
         var text = text1.textContent
@@ -490,6 +492,8 @@
         var builtSpan = letter => `<span class="rubber-letter" >${letter}</span>`
         letters.forEach(letter => (html += builtSpan(letter)))
         text1.innerHTML = html
+
+
     </script>
 </body>
 
