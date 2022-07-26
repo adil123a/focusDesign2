@@ -197,7 +197,8 @@ function initOciliator(remove) {
             ctx.strokeStyle = 'hsla(346,98%,56%,0.25)';
             ctx.lineWidth = 1;
 
-
+            //color here
+            
             if (color == 1) {
                 ctx.strokeStyle = 'hsla(346,98%,56%,0.25)';
             } else {
@@ -214,9 +215,9 @@ function initOciliator(remove) {
             ctx.frame++;
             requestAnimFrame(loop);
         }
-
+        var sec= document.getElementsByClassName('section-home')
         function resize() {
-            ctx.canvas.width = window.innerWidth;
+            ctx.canvas.width =sec[0].clientWidth;
             ctx.canvas.height = window.innerHeight;
         }
 
@@ -327,7 +328,7 @@ function initOciliator(remove) {
         hue = new Oscillator({
             phase: Math.random() * Math.TWO_PI,
             amplitude: 85,
-            frequency: 0.0015,
+            frequency: 0.00015,
             offset: 285
         });
 
