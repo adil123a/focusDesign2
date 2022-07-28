@@ -473,12 +473,8 @@ h1{
 /* media section for bigger screens */
 
 @media screen and (min-width: 1200px) {
-    .btns-container{
-        display: none;
-    }
-
     .aside{
-        width: 10%;
+        width: 10%!important;
         height: 100%;
     }
     .aside-wrapper{
@@ -592,6 +588,19 @@ h1{
 
     
 }
+@media screen and (min-width:640px){
+    .btns-container{
+        display: none;
+    }
+
+    .aside{
+        width: 20%;
+        height: 100%;
+    }
+    .menuIcon{
+        display:block!important;
+    }
+}
 
 // text animation here
 .rubber-letter{
@@ -624,6 +633,7 @@ h1{
 }
 
 .menuIcon{
+    display:none;
     width: fit-content;
     padding-left: 7rem;
 }
