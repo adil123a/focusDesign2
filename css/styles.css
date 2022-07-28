@@ -29,6 +29,11 @@ body{
   ::-webkit-scrollbar-thumb:hover {
     background:#363636; 
   }
+
+@font-face{
+    font-family:'Cool';
+    src:url(webfonts/coolvetica(5).ttf) format('truetype');
+}
 header{
     width:90%;
     height: 50px;
@@ -39,13 +44,14 @@ header{
     z-index: 2;
     justify-content: space-between;
     flex-direction: row;
-    padding-top:0.5rem
+    padding-top:0.5rem;
+    font-family:'Cool',sans-serif;
 }
 h1{
     font-weight:600!important
 }
 #sound{
-    padding: 7px;
+    margin-left: 7rem;
     background-color: #1b1b1b;
     border-radius: 5px;
     display: flex;
@@ -120,18 +126,22 @@ h1{
 .logo img{
     width: 45px;
     height: auto;
+    filter: hue-rotate(355deg);
 }
 .logo span{
     font-size: 1rem;
     color: #fff;
     padding-top: 15px;
+    font-family: inherit;
+    font-weight: 700;
 }
 .logo-section > span{
     margin-top: 25px;
     font-size: 12px;
-    font-size: 'Times New Roman', Times, serif;
+    font-family: 'Font Awesome 5 Free';
+    letter-spacing: 0.25px;
+    color: #a5a5a5;
 }
-
 /* nav section starts here */
 
 .nav-links a{
@@ -140,6 +150,7 @@ h1{
     line-height: 3rem;
     text-decoration: none;
     color: #908096;
+    transition:all 500ms ease-in-out;
 }
 .nav-links a:hover{
     color: #08fdd8;
@@ -167,6 +178,7 @@ h1{
 .social-icons li a{
     text-decoration: none;
     color: #909096;
+    transition:all 500ms ease-in-out;
 }
 .social-icons li a:hover{
     color: #08fdd8;
@@ -206,9 +218,12 @@ h1{
     color: #666565;
     letter-spacing: 3px;
 }
-.text-zone img{
-    width: 35px;
-    height: 50px;
+
+.Img_name{
+    display:initial;
+    width: 60px;
+    height: 72px;
+    margin-bottom: 17px;
 }
 .text-zone .gray-text{
     margin-top: 30px;
@@ -313,7 +328,7 @@ h1{
     position: relative;
 }
 #header{
-    font-size: 2rem;
+    font-size: 73px;
     color: #08fdd8;
     margin-bottom: 30px;
 }
@@ -494,10 +509,6 @@ h1{
         line-height: 85px;
         letter-spacing: -6px;
     }
-    .text-zone img{
-        width: 50px;
-        height: 72px;
-    }
     .text-zone .gray-text{
         font-size: 1rem;
     }
@@ -521,7 +532,6 @@ h1{
         align-items: center;
     }
     #header{
-        font-size: 2.5rem;
     }
     .text-zone-2 p{
         width: 700px;
@@ -549,7 +559,6 @@ h1{
     }
     .text-zone3 #header{
         width: 500px;
-        font-size: 3rem;
     }
     .text-zone3 p{
         width: 400px;
@@ -632,3 +641,62 @@ h1{
 #mainHeader{
     transition:all 500ms ease-in-out;
 }
+#overlay{
+    width: 100%;
+    height: 100%;
+    background: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #09f4d1;
+    mix-blend-mode: multiply;
+}
+
+/*input Css  */
+.inpfield input{
+    outline:none;
+    transition:all 500ms ease-in-out;
+}
+.inpfield textarea{
+    outline:none;
+    transition:all 500ms ease-in-out;
+}
+.inpfield{
+    position:relative;
+}
+.inpfield input:focus::placeholder {
+    color: transparent;
+}
+.inpfield textarea:focus::placeholder {
+    color: transparent;
+}
+.inpfield::after{
+    content: '';
+    position: absolute;
+    width:1px;
+    height:1px;
+    background:#08fdd8;
+    bottom:0;
+    left: 0;
+    transition:all 500ms ease-in-out;
+
+}
+.inpfield:focus-within::after{
+    content: '';
+    position: absolute;
+    width:227px;
+    height:1px;
+    background:#08fdd8;
+    bottom:0;
+    left: 0;
+}
+.inpfield2:focus-within::after{
+    width:466px;
+}
+.inpfield3::after{
+    bottom:5px;
+}
+.inpfield3:focus-within::after{
+    bottom:5px;
+}
+/*  */
