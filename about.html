@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Design</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <main>
+        <header id="mainHeader">
+            <div id="sound">
+                <audio id="myAudio">
+                    <source src="./Night.mp3">
+                </audio>
+                <i class="fab fa-soundcloud sound-cloud"></i>
+                <span>Sound</span>
+                <div class="on-off">
+                    <span id="off">OFF</span>
+                    <span id="on">On</span>
+                </div>
+            </div>
+            <div id="" class="menuIcon">
+                <img src="images/menu.png" alt="">
+            </div>
+
+            <div class="btns-container">
+                <i class="fas fa-bars bars"></i>
+                <i class="fas fa-times times"></i>
+            </div>
+        </header>
+
+        <!-- sidebar -->
+        <aside class="aside">
+            <div class="aside-wrapper">
+                <div class="logo-section">
+                    <a class="logo" rel="home" href="index.html">
+                        <img src="images/logo.png" alt="logo">
+                        <span>Focus Design</span>
+                    </a>
+                    <span>Graphics Designer</span>
+                </div>
+
+                <nav class="nav-links">
+                    <a href="about.html">About</a>
+                    <a href="#">My Skills</a>
+                    <a href="#">Work</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </nav>
+                <!-- social icons -->
+                <ul class="social-icons">
+                    <li>
+                        <a href="">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fas fa-rss"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- this is the third part the about me section -->
+        <section id="section-about" class="!mt-0 pt-20 lg:pt-28">
+
+            <div class="text-zone3">
+                <div id="header">
+                    <h2><span class="rubber-letter">M</span><span class="rubber-letter">e</span><span
+                            class="rubber-letter">,</span><span class="rubber-letter"> </span><span
+                            class="rubber-letter"> </span><span class="rubber-letter">M</span><span
+                            class="rubber-letter">y</span><span class="rubber-letter">s</span><span
+                            class="rubber-letter">e</span><span class="rubber-letter">l</span><span
+                            class="rubber-letter">f</span></h2>
+                    <h2><span class="rubber-letter">a</span><span class="rubber-letter">n</span><span
+                            class="rubber-letter">d</span><span class="rubber-letter"> </span><span
+                            class="rubber-letter"> </span><span class="rubber-letter">I</span></h2>
+                </div>
+
+                <p>Since Adobe Flash was a complete innovation, alongside with CSS 1.0
+                    and HTML 4.01 as standards of the current web I've been passionate about web.
+                </p>
+                <p>
+                    For over a decade I had many opportunities to work in a vast spectrum of
+                    <a href="#" class="tech">web technologies</a>
+                    what let me gather a significant amount of various experience.
+                    Working for companies and individuals around the globe I met and learnt
+                    from amazing and ambitious people.
+                </p>
+                <p>
+                    I currently work remotely with a selected freelance client base being open
+                    for new opportunities.
+                </p>
+            </div>
+
+            <div class="skills-charts">
+                <div id="myCanvasContainer">
+                    <canvas width="500" height="500" id="myCanvas">
+                        <ul id="tags">
+                            <li><a href="#" target="_blank">HTML</a></li>
+                            <li><a href="#" target="_blank">CSS</a></li>
+                            <li><a href="#" target="_blank">ES5</a></li>
+                            <li><a href="#" target="_blank">TypeScript</a></li>
+                            <li><a href="#" target="_blank">REST</a></li>
+                            <li><a href="#" target="_blank">JSON</a></li>
+                            <li><a href="#" target="_blank">GSAP</a></li>
+                            <li><a href="#" target="_blank">Data Science</a></li>
+                            <li><a href="#" target="_blank">Wordpress</a></li>
+                            <li><a href="#" target="_blank">PHP</a></li>
+                            <li><a href="#" target="_blank">Python</a></li>
+                            <li><a href="#" target="_blank">Node JS</a></li>
+                            <li><a href="#" target="_blank">Git</a></li>
+                            <li><a href="#" target="_blank">_lodash</a></li>
+                            <li><a href="#" target="_blank">SASS</a></li>
+                            <li><a href="#" target="_blank">JQuery</a></li>
+                            <li><a href="#" target="_blank">SQI</a></li>
+                            <li><a href="#" target="_blank">Gulp</a></li>
+                            <li><a href="#" target="_blank">npm</a></li>
+                            <li><a href="#" target="_blank">BEM</a></li>
+                        </ul>
+                    </canvas>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="jquery.tagcanvas.js"></script>
+    <script src="index.js"></script>
+    <script>
+        // var text1 = document.querySelector('.rubber-band')
+        // var text = text1.textContent
+        // var letters = text.split('')
+        // var html = ""
+        // var builtSpan = letter => `<span class="rubber-letter" >${letter}</span>`
+        // letters.forEach(letter => (html += builtSpan(letter)))
+        // text1.innerHTML = html
+
+        // var text1 = document.querySelector('.rubber-band1')
+        // var text = text1.textContent
+        // var letters = text.split('')
+        // var html = ""
+        // var builtSpan = letter => `<span class="rubber-letter" >${letter}</span>`
+        // letters.forEach(letter => (html += builtSpan(letter)))
+        // text1.innerHTML = html
+
+        // var text1 = document.querySelector('.rubber-band2')
+        // var text = text1.textContent
+        // var letters = text.split('')
+        // var html = ""
+        // var builtSpan = letter => `<span class="rubber-letter" >${letter}</span>`
+        // letters.forEach(letter => (html += builtSpan(letter)))
+        // text1.innerHTML = html
+        // var text1 = document.querySelector('.rubber-band3')
+        // var text = text1.textContent
+        // var letters = text.split('')
+        // var html = ""
+        // var builtSpan = letter => `<span class="rubber-letter" >${letter}</span>`
+        // letters.forEach(letter => (html += builtSpan(letter)))
+        // text1.innerHTML = html
+        // var text1 = document.querySelector('.rubber-band4')
+        // var text = text1.textContent
+        // var letters = text.split('')
+        // var html = ""
+        // var builtSpan = letter => `<span class="rubber-letter" >${letter}</span>`
+        // letters.forEach(letter => (html += builtSpan(letter)))
+        // text1.innerHTML = html
+        // var text1 = document.querySelector('.rubber-band5')
+        // var text = text1.textContent
+        // var letters = text.split('')
+        // var html = ""
+        // var builtSpan = letter => `<span class="rubber-letter" >${letter}</span>`
+        // letters.forEach(letter => (html += builtSpan(letter)))
+        // text1.innerHTML = html
+
+
+    </script>
+</body>
+
+</html>

@@ -35,10 +35,12 @@ if (isTrue) {
     SideNav.style.right="-450px"
     mainHeader.style.width="100%"
     isTrue=false
+    isTrue2=true
 }else{
     SideNav.style.right="0px"
     mainHeader.style.width="90%"
     isTrue=true
+    isTrue2=false
 }})
 window.addEventListener('scroll',()=>{
     let s=window.scrollY
@@ -48,7 +50,7 @@ window.addEventListener('scroll',()=>{
         mainHeader.style.background="#262626"
     }else if(s<60){
         mainHeader.style.background="transparent"
-        mainHeader.style.width="90%"
+        // mainHeader.style.width="90%"
 
     }
 })
