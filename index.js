@@ -1,18 +1,1 @@
-const soundCloud=document.querySelector('.sound-cloud');const off=document.querySelector('#off');const on=document.querySelector('#on');const myAudio=document.querySelector('#myAudio');off.addEventListener('click',()=>soundTrack('off'));on.addEventListener('click',()=>soundTrack('on'));const soundTrack=(soundState)=>{if(soundState==='off'){on.style.display='block';off.style.display='none';soundCloud.style.color="#08fdd8";myAudio.play()}else if(soundState==='on'){on.style.display='none';off.style.display='block';soundCloud.style.color="#f50057";myAudio.pause()}}
-const btnBars=document.querySelector('.bars');const btnTimes=document.querySelector('.times');const SideNav=document.querySelector('.aside');const navItem2=document.querySelector('.menuIcon')
-const Header1=document.querySelector('mainHeader')
-var isTrue=!0
-navItem2.addEventListener('click',()=>{if(isTrue){SideNav.style.right="0px"
-mainHeader.style.width="90%"
-isTrue=!1}else{SideNav.style.right="-450px"
-mainHeader.style.width="100%"
-isTrue=!0}})
-window.addEventListener('scroll',()=>{let s=window.scrollY
-if(isTrue){mainHeader.style.width="100%"}if(s>120){mainHeader.style.background="#262626"}else if(s<60){mainHeader.style.background="transparent"}})
-btnBars.addEventListener('click',()=>myFunc('open'));btnTimes.addEventListener('click',()=>myFunc('close'));const myFunc=(navCondition)=>{if(navCondition==='open'){SideNav.classList.add('show-nav');btnTimes.style.display="block";btnBars.style.display="none"}else if(navCondition==='close'){SideNav.classList.remove('show-nav');btnTimes.style.display="none";btnBars.style.display="block"}}
-$(document).ready(function(){if(!$("#myCanvas").tagcanvas({textColour:"#08fdd8",outlineColour:"transparent",reverse:!0,depth:0.8,maxSpeed:0.05,weight:!0,},"tags")){$("#myCanvasContainer")}})
-let cnvas=document.querySelector('#myCanvas')
-let sectionAbout=document.querySelector('#section-about')
-let widthNum=sectionAbout.clientWidth
-if(widthNum>=1024){cnvas.width=widthNum/2.88}
-if(widthNum<=500){cnvas.width=widthNum-50}
+const soundCloud=document.querySelector(".sound-cloud"),off=document.querySelector("#off"),on=document.querySelector("#on"),myAudio=document.querySelector("#myAudio"),soundTrack=(off.addEventListener("click",()=>soundTrack("off")),on.addEventListener("click",()=>soundTrack("on")),e=>{"off"===e?(on.style.display="block",off.style.display="none",soundCloud.style.color="#08fdd8",myAudio.play()):"on"===e&&(on.style.display="none",off.style.display="block",soundCloud.style.color="#f50057",myAudio.pause())}),btnBars=document.querySelector(".bars"),btnTimes=document.querySelector(".times"),SideNav=document.querySelector(".aside"),navItem2=document.querySelector(".menuIcon"),Header1=document.querySelector("mainHeader");var isTrue=!0;navItem2.addEventListener("click",()=>{isTrue=isTrue?(SideNav.style.right="0px",!(mainHeader.style.width="90%")):(SideNav.style.right="-450px",mainHeader.style.width="100%",!0)}),window.addEventListener("scroll",()=>{var e=window.scrollY;isTrue&&(mainHeader.style.width="100%"),120<e?mainHeader.style.background="#262626":e<60&&(mainHeader.style.background="transparent")}),btnBars.addEventListener("click",()=>myFunc("open")),btnTimes.addEventListener("click",()=>myFunc("close"));const myFunc=e=>{"open"===e?(SideNav.classList.add("show-nav"),btnTimes.style.display="block",btnBars.style.display="none"):"close"===e&&(SideNav.classList.remove("show-nav"),btnTimes.style.display="none",btnBars.style.display="block")};$(document).ready(function(){$("#myCanvas").tagcanvas({textColour:"#08fdd8",outlineColour:"transparent",reverse:!0,depth:.8,maxSpeed:.05,weight:!0},"tags")||$("#myCanvasContainer")});let cnvas=document.querySelector("#myCanvas"),sectionAbout=document.querySelector("#section-about"),widthNum=sectionAbout.clientWidth;1024<=widthNum&&(cnvas.width=widthNum/2.88),widthNum<=500&&(cnvas.width=widthNum-50);
