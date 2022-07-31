@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+
+    </style>
 </head>
 
-<body>
-    <main>
+<body id="bodyTag" onload="loader()">
+    <main id="mainSection">
         <header id="mainHeader">
             <div id="sound">
                 <audio id="myAudio">
@@ -137,58 +140,55 @@
         </section>
 
     </main>
+    <div id="loaderMain">
+        <aside id="aside" class="aside">
+            <div class="aside-wrapper">
+                <div class="logo-section">
+                    <a class="logo" rel="home" href="index.html">
+                        <img src="images/logo.png" alt="logo">
+                        <span>Focus Design</span>
+                    </a>
+                    <span>Graphics Designer</span>
+                </div>
 
+                <nav class="nav-links">
+                    <a href="about.html">About</a>
+                    <a href="#">My Skills</a>
+                    <a href="#">Work</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </nav>
+                <!-- social icons -->
+                <ul class="social-icons">
+                    <li>
+                        <a href="">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fas fa-rss"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <div class="loaderContainer">
+            <div class="loader"></div>
+            <p class="loaderTxt">Think more design less</p>
+        </div>
 
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="jquery.tagcanvas.js"></script>
     <script src="index.js"></script>
     <script>
-        // var text1 = document.querySelector('.rubber-band')
-        // var text = text1.textContent
-        // var letters = text.split('')
-        // var html = ""
-        // var builtSpan = letter => `<span class="rubber-letter" >${letter}</span>`
-        // letters.forEach(letter => (html += builtSpan(letter)))
-        // text1.innerHTML = html
-
-        // var text1 = document.querySelector('.rubber-band1')
-        // var text = text1.textContent
-        // var letters = text.split('')
-        // var html = ""
-        // var builtSpan = letter => `<span class="rubber-letter" >${letter}</span>`
-        // letters.forEach(letter => (html += builtSpan(letter)))
-        // text1.innerHTML = html
-
-        // var text1 = document.querySelector('.rubber-band2')
-        // var text = text1.textContent
-        // var letters = text.split('')
-        // var html = ""
-        // var builtSpan = letter => `<span class="rubber-letter" >${letter}</span>`
-        // letters.forEach(letter => (html += builtSpan(letter)))
-        // text1.innerHTML = html
-        // var text1 = document.querySelector('.rubber-band3')
-        // var text = text1.textContent
-        // var letters = text.split('')
-        // var html = ""
-        // var builtSpan = letter => `<span class="rubber-letter" >${letter}</span>`
-        // letters.forEach(letter => (html += builtSpan(letter)))
-        // text1.innerHTML = html
-        // var text1 = document.querySelector('.rubber-band4')
-        // var text = text1.textContent
-        // var letters = text.split('')
-        // var html = ""
-        // var builtSpan = letter => `<span class="rubber-letter" >${letter}</span>`
-        // letters.forEach(letter => (html += builtSpan(letter)))
-        // text1.innerHTML = html
-        // var text1 = document.querySelector('.rubber-band5')
-        // var text = text1.textContent
-        // var letters = text.split('')
-        // var html = ""
-        // var builtSpan = letter => `<span class="rubber-letter" >${letter}</span>`
-        // letters.forEach(letter => (html += builtSpan(letter)))
-        // text1.innerHTML = html
-
 
     </script>
 </body>
