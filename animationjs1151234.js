@@ -1,1 +1,361 @@
-function initOciliator(e){{function t(e){this.init(e||{})}function n(e){this.init(e||{})}function i(e){document.removeEventListener("mousemove",i),document.removeEventListener("touchstart",i),document.addEventListener("mousemove",d),document.addEventListener("touchmove",d),document.addEventListener("touchstart",u),d(e),v=[];for(var t=0;t<m.trails;t++)v.push(new n({spring:.45+t/m.trails*.025}));o()}function o(){if(h.running){h.globalCompositeOperation="source-over",h.fillStyle="#1D1D1D",h.fillRect(0,0,h.canvas.width,h.canvas.height),h.globalCompositeOperation="lighter",h.strokeStyle="hsla(346,98%,56%,0.25)",h.lineWidth=1,h.strokeStyle=1==f?"hsla(346,98%,56%,0.25)":"hsla(171,98%,56%,0.25)";for(var e,t=0;t<m.trails;t++)(e=v[t]).update(),e.draw();h.frame++,requestAnimFrame(o)}}function s(){h.canvas.width=l.clientWidth,h.canvas.height=window.innerHeight}function r(){h.running||(h.running=!0,o())}function a(){h.running=!1}function d(e){e.touches?(c.x=e.touches[0].pageX,c.y=e.touches[0].pageY):(c.x=e.clientX,c.y=e.clientY),e.preventDefault()}function u(e){1==e.touches.length&&(c.x=e.touches[0].pageX,c.y=e.touches[0].pageY)}var h,c,v,m,f,l;e?(document.body.removeEventListener("orientationchange",s),window.removeEventListener("resize",s),window.removeEventListener("focus",r),window.removeEventListener("blur",a),document.removeEventListener("mousemove",d),document.removeEventListener("touchmove",d),document.removeEventListener("touchstart",u)):(c={},v=[],(m={}).debug=!1,m.friction=.5,m.trails=30,m.size=50,m.dampening=.25,m.tension=.98,Math.TWO_PI=2*Math.PI,t.prototype=(p=0,{init:function(e){this.phase=e.phase||0,this.offset=e.offset||0,this.frequency=e.frequency||.001,this.amplitude=e.amplitude||1},update:function(){return this.phase+=this.frequency,p=this.offset+Math.sin(this.phase)*this.amplitude},value:function(){return p}}),n.prototype={init:function(e){this.spring=e.spring+.1*Math.random()-.05,this.friction=m.friction+.01*Math.random()-.005,this.nodes=[];for(var t,n=0;n<m.size;n++)(t=new g).x=c.x,t.y=c.y,this.nodes.push(t)},update:function(){var e=this.spring,t=this.nodes[0];t.vx+=(c.x-t.x)*e,t.vy+=(c.y-t.y)*e;for(var n,i=0,o=this.nodes.length;i<o;i++)t=this.nodes[i],0<i&&(n=this.nodes[i-1],t.vx+=(n.x-t.x)*e,t.vy+=(n.y-t.y)*e,t.vx+=n.vx*m.dampening,t.vy+=n.vy*m.dampening),t.vx*=this.friction,t.vy*=this.friction,t.x+=t.vx,t.y+=t.vy,e*=m.tension},draw:function(){var e,t,n=this.nodes[0].x,i=this.nodes[0].y;h.beginPath(),h.moveTo(n,i);for(var o=1,s=this.nodes.length-2;o<s;o++)e=this.nodes[o],t=this.nodes[o+1],n=.5*(e.x+t.x),i=.5*(e.y+t.y),h.quadraticCurveTo(e.x,e.y,n,i);e=this.nodes[o],t=this.nodes[o+1],h.quadraticCurveTo(e.x,e.y,t.x,t.y),h.stroke(),h.closePath()}},e=1,y=2,f=Math.floor(Math.random()*(y-e+1)+e),l=document.getElementById("bodyTag"),window.requestAnimFrame=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||function(e){window.setTimeout(e,1e3/60)},(h=document.getElementById("canvas").getContext("2d")).running=!0,h.frame=1,new t({phase:Math.random()*Math.TWO_PI,amplitude:85,frequency:15e-5,offset:285}),document.addEventListener("mousemove",i),document.addEventListener("touchstart",i),document.body.addEventListener("orientationchange",s),window.addEventListener("resize",s),window.addEventListener("focus",r),window.addEventListener("blur",a),s())}var y,p;function g(){this.x=0,this.y=0,this.vy=0,this.vx=0}}initOciliator();
+function initOciliator(remove) {
+
+
+    if(!remove) {
+
+        var ctx,
+            hue,
+            logo,
+            form,
+            buffer,
+            target = {},
+            tendrils = [],
+            settings = {};
+
+        settings.debug = false;
+        settings.friction = 0.5;
+        settings.trails = 30;
+        settings.size = 50;
+        settings.dampening = 0.25;
+        settings.tension = 0.98;
+
+        Math.TWO_PI = Math.PI * 2;
+
+        // ========================================================================================
+        // Oscillator
+        // ----------------------------------------------------------------------------------------
+
+        function Oscillator(options) {
+            this.init(options || {});
+        }
+
+        Oscillator.prototype = (function () {
+
+            var value = 0;
+
+            return {
+
+                init: function (options) {
+                    this.phase = options.phase || 0;
+                    this.offset = options.offset || 0;
+                    this.frequency = options.frequency || 0.001;
+                    this.amplitude = options.amplitude || 1;
+                },
+
+                update: function () {
+                    this.phase += this.frequency;
+                    value = this.offset + Math.sin(this.phase) * this.amplitude;
+                    return value;
+                },
+
+                value: function () {
+                    return value;
+                }
+            };
+
+        })();
+
+        // ========================================================================================
+        // Tendril
+        // ----------------------------------------------------------------------------------------
+
+        function Tendril(options) {
+            this.init(options || {});
+        }
+
+        Tendril.prototype = (function () {
+
+            function Node() {
+                this.x = 0;
+                this.y = 0;
+                this.vy = 0;
+                this.vx = 0;
+            }
+
+            return {
+
+                init: function (options) {
+
+                    this.spring = options.spring + (Math.random() * 0.1) - 0.05;
+                    this.friction = settings.friction + (Math.random() * 0.01) - 0.005;
+                    this.nodes = [];
+
+                    for (var i = 0, node; i < settings.size; i++) {
+
+                        node = new Node();
+                        node.x = target.x;
+                        node.y = target.y;
+
+                        this.nodes.push(node);
+                    }
+                },
+
+                update: function () {
+
+                    var spring = this.spring,
+                        node = this.nodes[0];
+
+                    node.vx += (target.x - node.x) * spring;
+                    node.vy += (target.y - node.y) * spring;
+
+                    for (var prev, i = 0, n = this.nodes.length; i < n; i++) {
+
+                        node = this.nodes[i];
+
+                        if (i > 0) {
+
+                            prev = this.nodes[i - 1];
+
+                            node.vx += (prev.x - node.x) * spring;
+                            node.vy += (prev.y - node.y) * spring;
+                            node.vx += prev.vx * settings.dampening;
+                            node.vy += prev.vy * settings.dampening;
+                        }
+
+                        node.vx *= this.friction;
+                        node.vy *= this.friction;
+                        node.x += node.vx;
+                        node.y += node.vy;
+
+                        spring *= settings.tension;
+                    }
+                },
+
+                draw: function () {
+
+                    var x = this.nodes[0].x,
+                        y = this.nodes[0].y,
+                        a, b;
+
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
+
+                    for (var i = 1, n = this.nodes.length - 2; i < n; i++) {
+
+                        a = this.nodes[i];
+                        b = this.nodes[i + 1];
+                        x = (a.x + b.x) * 0.5;
+                        y = (a.y + b.y) * 0.5;
+
+                        ctx.quadraticCurveTo(a.x, a.y, x, y);
+                    }
+
+                    a = this.nodes[i];
+                    b = this.nodes[i + 1];
+
+                    ctx.quadraticCurveTo(a.x, a.y, b.x, b.y);
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+            };
+
+        })();
+
+        // ----------------------------------------------------------------------------------------
+
+        function init(event) {
+
+            document.removeEventListener('mousemove', init);
+            document.removeEventListener('touchstart', init);
+
+            document.addEventListener('mousemove', mousemove);
+            document.addEventListener('touchmove', mousemove);
+            document.addEventListener('touchstart', touchstart);
+
+            mousemove(event);
+            reset();
+            loop();
+        }
+
+        function reset() {
+
+            tendrils = [];
+
+            for (var i = 0; i < settings.trails; i++) {
+
+                tendrils.push(new Tendril({
+                    spring: 0.45 + 0.025 * (i / settings.trails)
+                }));
+            }
+        }
+
+
+        function randomIntFromInterval(min, max) { // min and max included
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        var color = randomIntFromInterval(1, 2);
+
+        function loop() {
+
+            if (!ctx.running) return;
+
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.fillStyle = '#1D1D1D';
+            ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            ctx.globalCompositeOperation = 'lighter';
+            ctx.strokeStyle = 'hsla(346,98%,56%,0.25)';
+            ctx.lineWidth = 1;
+
+            //color here
+            
+            if (color == 1) {
+                ctx.strokeStyle = 'hsla(346,98%,56%,0.25)';
+            } else {
+                ctx.strokeStyle = 'hsla(171,98%,56%,0.25)';
+            }
+
+
+            for (var i = 0, tendril; i < settings.trails; i++) {
+                tendril = tendrils[i];
+                tendril.update();
+                tendril.draw();
+            }
+
+            ctx.frame++;
+            requestAnimFrame(loop);
+        }
+        var sec= document.getElementById('bodyTag')
+        function resize() {
+            ctx.canvas.width =sec.clientWidth;
+            ctx.canvas.height = window.innerHeight;
+        }
+
+        function start() {
+            if (!ctx.running) {
+                ctx.running = true;
+                loop();
+            }
+        }
+
+        function stop() {
+            ctx.running = false;
+        }
+
+        function mousemove(event) {
+            if (event.touches) {
+                target.x = event.touches[0].pageX;
+                target.y = event.touches[0].pageY;
+            } else {
+                target.x = event.clientX
+                target.y = event.clientY;
+            }
+            event.preventDefault();
+        }
+
+        function touchstart(event) {
+            if (event.touches.length == 1) {
+                target.x = event.touches[0].pageX;
+                target.y = event.touches[0].pageY;
+            }
+        }
+
+        function keyup(event) {
+
+            switch (event.keyCode) {
+                case 32:
+                    save();
+                    break;
+                default:
+                // console.log(event.keyCode);
+            }
+        }
+
+        function letters(id) {
+
+            var el = document.getElementById(id),
+                letters = el.innerHTML.replace('&amp;', '&').split(''),
+                heading = '';
+
+            for (var i = 0, n = letters.length, letter; i < n; i++) {
+                letter = letters[i].replace('&', '&amp');
+                heading += letter.trim() ? '<span class="letter-' + i + '">' + letter + '</span>' : '&nbsp;';
+            }
+
+            el.innerHTML = heading;
+            setTimeout(function () {
+                el.className = 'transition-in';
+            }, (Math.random() * 500) + 500);
+        }
+
+        function save() {
+
+            if (!buffer) {
+
+                buffer = document.createElement('canvas');
+                buffer.width = screen.availWidth;
+                buffer.height = screen.availHeight;
+                buffer.ctx = buffer.getContext('2d');
+
+                form = document.createElement('form');
+                form.method = 'post';
+                form.input = document.createElement('input');
+                form.input.type = 'hidden';
+                form.input.name = 'data';
+                form.appendChild(form.input);
+
+                document.body.appendChild(form);
+            }
+
+            buffer.ctx.fillStyle = 'rgba(8,5,16)';
+            buffer.ctx.fillRect(0, 0, buffer.width, buffer.height);
+
+            buffer.ctx.drawImage(canvas,
+                Math.round(buffer.width / 2 - canvas.width / 2),
+                Math.round(buffer.height / 2 - canvas.height / 2)
+            );
+
+
+            window.open(buffer.toDataURL(), 'wallpaper', 'top=0,left=0,width=' + buffer.width + ',height=' + buffer.height);
+
+            // form.input.value = buffer.toDataURL().substr(22);
+            // form.submit();
+        }
+
+        window.requestAnimFrame = (function () {
+            return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (fn) {
+                window.setTimeout(fn, 1000 / 60)
+            };
+        })();
+
+
+        ctx = document.getElementById('canvas').getContext('2d');
+
+        ctx.running = true;
+        ctx.frame = 1;
+
+
+        hue = new Oscillator({
+            phase: Math.random() * Math.TWO_PI,
+            amplitude: 85,
+            frequency: 0.00015,
+            offset: 285
+        });
+
+
+        document.addEventListener('mousemove', init);
+        document.addEventListener('touchstart', init);
+        document.body.addEventListener('orientationchange', resize);
+        window.addEventListener('resize', resize);
+        window.addEventListener('focus', start);
+        window.addEventListener('blur', stop);
+
+        resize();
+
+    } else {
+
+
+        document.body.removeEventListener('orientationchange', resize);
+        window.removeEventListener('resize', resize);
+        window.removeEventListener('focus', start);
+        window.removeEventListener('blur', stop);
+
+        document.removeEventListener('mousemove', mousemove);
+        document.removeEventListener('touchmove', mousemove);
+        document.removeEventListener('touchstart', touchstart);
+
+
+    }
+}
+
+initOciliator()

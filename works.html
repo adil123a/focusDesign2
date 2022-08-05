@@ -8,6 +8,7 @@
     <title>Focus Design</title>
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="/css/loader.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -79,66 +80,58 @@
             </div>
         </aside>
         <!-- this is the third part the about me section -->
-        <section id="section-about" class="!mt-0 pt-20 lg:pt-28">
+        <div class="gallery">
 
-            <div class="text-zone3">
-                <div id="header">
-                    <h2><span class="rubber-letter">M</span><span class="rubber-letter">e</span><span
-                            class="rubber-letter">,</span><span class="rubber-letter"> </span><span
-                            class="rubber-letter"> </span><span class="rubber-letter">M</span><span
-                            class="rubber-letter">y</span><span class="rubber-letter">s</span><span
-                            class="rubber-letter">e</span><span class="rubber-letter">l</span><span
-                            class="rubber-letter">f</span></h2>
-                    <h2><span class="rubber-letter">a</span><span class="rubber-letter">n</span><span
-                            class="rubber-letter">d</span><span class="rubber-letter"> </span><span
-                            class="rubber-letter"> </span><span class="rubber-letter">I</span></h2>
-                </div>
+            <ul class="controls">
+                <li class="buttons active" data-filter="all">all</li>
+                <li class="buttons" data-filter="website">website</li>
+                <li class="buttons" data-filter="logo">logo</li>
+            </ul>
 
-                <p>Since Adobe Flash was a complete innovation, alongside with CSS 1.0
-                    and HTML 4.01 as standards of the current web I've been passionate about web.
-                </p>
-                <p>
-                    For over a decade I had many opportunities to work in a vast spectrum of
-                    <a href="#" class="tech">web technologies</a>
-                    what let me gather a significant amount of various experience.
-                    Working for companies and individuals around the globe I met and learnt
-                    from amazing and ambitious people.
-                </p>
-                <p>
-                    I currently work remotely with a selected freelance client base being open
-                    for new opportunities.
-                </p>
+            <div class="image-container" data-aos="flip-left">
+
+                <a href="image/1.jpg" class="image website">
+                    <img src="image/1.jpg" alt="">
+                </a>
+                <a href="image/2.jpg" class="image website">
+                    <img src="image/2.jpg" alt="">
+                </a>
+                <a href="image/3.jpg" class="image logo">
+                    <img src="image/3.jpg" alt="">
+                </a>
+
+                <a href="image/4.jpg" class="image logo">
+                    <img src="image/4.jpg" alt="">
+                </a>
+                <a href="image/5.jpg" class="image logo">
+                    <img src="image/5.jpg" alt="">
+                </a>
+
+                <a href="image/6.jpg" class="image logo">
+                    <img src="image/6.jpg" alt="">
+                </a>
+                <a href="image/7.jpg" class="image logo">
+                    <img src="image/7.jpg" alt="">
+                </a>
+                <a href="image/8.jpg" class="image logo">
+                    <img src="image/8.jpg" alt="">
+                </a>
+                <a href="image/9.jpg" class="image logo">
+                    <img src="image/9.jpg" alt="">
+                </a>
+                <a href="image/10.jpg" class="image logo">
+                    <img src="image/10.jpg" alt="">
+                </a>
+
+                <a href="image/11.jpg" class="image logo">
+                    <img src="image/11.jpg" alt="">
+                </a>
+                <a href="image/12.jpg" class="image logo">
+                    <img src="image/12.jpg" alt="">
+                </a>
             </div>
 
-            <div class="skills-charts">
-                <div id="myCanvasContainer">
-                    <canvas width="500" height="500" id="myCanvas">
-                        <ul id="tags">
-                            <li><a href="#" target="_blank">HTML</a></li>
-                            <li><a href="#" target="_blank">CSS</a></li>
-                            <li><a href="#" target="_blank">ES5</a></li>
-                            <li><a href="#" target="_blank">TypeScript</a></li>
-                            <li><a href="#" target="_blank">REST</a></li>
-                            <li><a href="#" target="_blank">JSON</a></li>
-                            <li><a href="#" target="_blank">GSAP</a></li>
-                            <li><a href="#" target="_blank">Data Science</a></li>
-                            <li><a href="#" target="_blank">Wordpress</a></li>
-                            <li><a href="#" target="_blank">PHP</a></li>
-                            <li><a href="#" target="_blank">Python</a></li>
-                            <li><a href="#" target="_blank">Node JS</a></li>
-                            <li><a href="#" target="_blank">Git</a></li>
-                            <li><a href="#" target="_blank">_lodash</a></li>
-                            <li><a href="#" target="_blank">SASS</a></li>
-                            <li><a href="#" target="_blank">JQuery</a></li>
-                            <li><a href="#" target="_blank">SQI</a></li>
-                            <li><a href="#" target="_blank">Gulp</a></li>
-                            <li><a href="#" target="_blank">npm</a></li>
-                            <li><a href="#" target="_blank">BEM</a></li>
-                        </ul>
-                    </canvas>
-                </div>
-            </div>
-        </section>
+        </div>
 
     </main>
     <div id="loaderMain">
@@ -198,12 +191,72 @@
         </div>
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="jquery.tagcanvas.js"></script>
+
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
+    <!-- <script src="jquery.tagcanvas.js"></script> -->
     <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- magnific popup js cdn link  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
     <script>
 
+        $(document).ready(function () {
+
+            $('.buttons').click(function () {
+
+                $(this).addClass('active').siblings().removeClass('active');
+
+                var filter = $(this).attr('data-filter')
+
+                if (filter == 'all') {
+                    $('.image').show(400);
+                } else {
+                    $('.image').not('.' + filter).hide(200);
+                    $('.image').filter('.' + filter).show(400);
+                }
+
+            });
+
+            $('.gallery').magnificPopup({
+                removalDelay: 300,
+                delegate: 'a',
+                type: 'image',
+                gallery: {
+                    enabled: true
+                },
+            });
+
+        });
+
+        $('.image').magnificPopup({
+            type: 'image',
+            gallery: {
+                enabled: true
+            },
+            mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+            zoom: {
+                enabled: true, // By default it's false, so don't forget to enable it
+
+                duration: 300, // duration of the effect, in milliseconds
+                easing: 'ease-in-out', // CSS transition easing function
+
+                // The "opener" function should return the element from which popup will be zoomed in
+                // and to which popup will be scaled down
+                // By defailt it looks for an image tag:
+                opener: function (openerElement) {
+                    // openerElement is the element on which popup was initialized, in this case its <a> tag
+                    // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+                    return openerElement.is('img') ? openerElement : openerElement.find('img');
+                }
+            },
+
+        });
     </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 </body>
 
 </html>
