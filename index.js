@@ -89,10 +89,9 @@ let sectionAbout=document.querySelector('#section-about')
     function loader() {
         setTimeout(() => {
             mainSection.style.display = 'block'
-            mainContainer.style.left = '3000px'
             mainBody.style.overflowY = 'auto'
-        }, 8000);
+        }, 7600);
         setTimeout(() => {
             mainContainer.remove()
-        }, 9000);
+        },8000);
     }
