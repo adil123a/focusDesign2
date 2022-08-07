@@ -15,4 +15,4 @@ let sectionAbout=document.querySelector('#section-about')
 var mainContainer=document.getElementById('loaderMain')
 var mainSection=document.getElementById('mainSection')
 var asideCont=document.getElementById('aside')
-function loader(){setTimeout(()=>{mainSection.style.display='block'},6000);setTimeout(()=>{mainBody.style.overflowY='auto'},7600);setTimeout(()=>{mainContainer.remove()},8600)}
+function loader(){setTimeout(()=>{mainSection.style.display='block'},7500);setTimeout(()=>{mainBody.style.overflowY='auto'},7600);setTimeout(()=>{mainContainer.remove()},8600)}
